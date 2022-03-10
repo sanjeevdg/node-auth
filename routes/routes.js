@@ -15,6 +15,11 @@ router.post('/signup',function(req, res){
  signup
 } );
 
+router.get('/signup',function(req, res){
+ signup
+} );
+
+
 router.get('/private', function(req, res){
  isAuth
 });
