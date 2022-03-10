@@ -1,8 +1,7 @@
-import bcrypt from 'bcryptjs';
+const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
 
-import jwt from 'jsonwebtoken';
-
-import User from '../models/user.js';
+const User = require('../models/user.js');
 
 const signup = (req, res, next) => {
     // checks if email already exists
