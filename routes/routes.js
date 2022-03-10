@@ -1,7 +1,10 @@
 const express =require('express');
 
-const { signup, login, isAuth } = require('../controllers/auth.js');
+const signup  = require('../controllers/auth.js');
+const login  = require('../controllers/auth.js');
+const isAuth  = require('../controllers/auth.js');
 
+ 
 const router = express.Router();
 
 router.post('/login', login);
@@ -19,4 +22,5 @@ router.use('/', (req, res, next) => {
     res.status(404).json({error : "page not found"});
 });
 
-export default router;
+//export default router;
+module.exports = router;
