@@ -1,9 +1,9 @@
 const express =require('express');
 
-const signup  = require('../controllers/auth.js');
-const login  = require('../controllers/auth.js');
-const isAuth  = require('../controllers/auth.js');
-
+//const signup  = require('../controllers/auth.js');
+//const login  = require('../controllers/auth.js');
+//const isAuth  = require('../controllers/auth.js');
+const {signup,login,isAuth} = require('../controllers/auth.js');
  
 const router = express.Router();
 
@@ -15,9 +15,9 @@ router.post('/signup',function(req, res){
  signup
 } );
 
-router.get('/signup',function(req, res){
- signup
-} );
+//router.get('/signup',function(req, res){
+// signup
+//} );
 
 
 router.get('/private', function(req, res){
