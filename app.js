@@ -1,8 +1,8 @@
 const express = require("express");
 const http = require("http");
-const sequelize = require('./utils/database.js');
+const {sequelize} = require('./utils/database.js');
 
-const router = require('./routes/routes.js');
+const {router} = require('./routes/routes.js');
 
 const app = express();
 
