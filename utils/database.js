@@ -1,8 +1,8 @@
 import { Sequelize } from 'sequelize';
 
-const sequelize = new Sequelize('loginDB', 'root', 'YOUR_PASSWORD', {
+const sequelize = new Sequelize('sql6478058', 'sql6478058', '3VIQYqW9Yc', {
     dialect: 'mysql',
-    host: 'localhost', 
+    host: 'sql6.freemysqlhosting.net', 
 });
 
 export default sequelize;
