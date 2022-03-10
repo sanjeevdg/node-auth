@@ -5,4 +5,5 @@ const sequelize = new Sequelize('sql6478058', 'sql6478058', '3VIQYqW9Yc', {
     host: 'sql6.freemysqlhosting.net'
 });
 
-export default sequelize;
+//export default sequelize;
+module.exports = sequelize;
