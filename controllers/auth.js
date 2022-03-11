@@ -5,22 +5,22 @@ const User = require('../models/user.js');
 
 const signup = (req, res, next) => {
     // checks if email already exists
-    //req.body.email
+    //'san@san.com'
     User.findOne({ where : {
-        email:'san@san.com' , 
+        email:req.body.email , 
     }})
     .then(dbUser => {
         if (dbUser) {
             return res.status(409).json({message: "email already exists"});
-        } else if (req.email && req.password) {
+        } else if (req.body.email && req.body.password) {
             // password hash
-            bcrypt.hash(req.password, 12, (err, passwordHash) => {
+            bcrypt.hash(req.body.password, 12, (err, passwordHash) => {
                 if (err) {
                     return res.status(500).json({message: "couldnt hash the password"}); 
                 } else if (passwordHash) {
                     return User.create(({
-                        email: req.email,
-                        name: req.name,
+                        email: req.body.email,
+                        name: req.body.name,
                         password: passwordHash,
                     }))
                     .then(() => {
@@ -32,9 +32,9 @@ const signup = (req, res, next) => {
                     });
                 };
             });
-        } else if (!req.password) {
+        } else if (!req.body.password) {
             return res.status(400).json({message: "password not provided"});
-        } else if (!req.email) {
+        } else if (!req.body.email) {
             return res.status(400).json({message: "email not provided"});
         };
     })
