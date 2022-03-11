@@ -5,10 +5,10 @@ const User = require('../models/user.js');
 
 const signup = (req, res, next) => {
     // checks if email already exists
-    //'san@san.com'
+    //req.body.email
      console.log('entering method fndOne::::::::::::::');
     User.findOne({ where : {
-        email:req.body.email , 
+        email:'san@san.com', 
     }})
     .then(dbUser => {
         console.log('entered then clause.................');
