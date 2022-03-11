@@ -7,9 +7,9 @@ const {signup,login,isAuth} = require('../controllers/auth');
  
 const router = express.Router();
 //function(req, res){
-router.post('/login',function(req, res){ login});
+router.post('/login',function(req, res){ login;});
 
-router.post('/signup',function(req, res){ signup});
+router.post('/signup',function(req, res,err){ signup;console.log('myerr:::'+err.message);});
 
 //router.get('/signup',function(req, res){
 // signup
