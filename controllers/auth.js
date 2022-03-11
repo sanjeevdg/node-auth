@@ -11,6 +11,7 @@ const signup = (req, res, next) => {
         email:req.body.email , 
     }})
     .then(dbUser => {
+        console.log('entered then clause.................');
         if (dbUser) {
             console.log('this is email already exists message after querying db');
             return res.status(409).json({message: "email already exists"});
@@ -31,7 +32,7 @@ const signup = (req, res, next) => {
                         res.status(200).json({message: "user created"});
                     })
                     .catch(err => {
-                        console.log(err);
+                        console.log('signup error message is:::::'+err);
                         res.status(502).json({message: "error while creating the user"});
                     });
                 };
