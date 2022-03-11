@@ -11,7 +11,7 @@ app.set('port', (process.env.PORT || 5000));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-
+app.use(bodyParser.raw());
 
 
 
@@ -25,10 +25,10 @@ app.use((_, res, next) => {
 
 app.use(router);
 
-const server = http.createServer(app);
+//const server = http.createServer(app);
 
 sequelize.sync(); 
 
-server.listen(app.get('port'), function() {
+app.listen(app.get('port'), function() {
     console.log('App is running, server is listening on port ', app.get('port'));
 });
