@@ -5,8 +5,9 @@ const User = require('../models/user.js');
 
 const signup = (req, res, next) => {
     // checks if email already exists
+    //req.body.email
     User.findOne({ where : {
-        email: req.body.email, 
+        email:'san@san.com' , 
     }})
     .then(dbUser => {
         if (dbUser) {
