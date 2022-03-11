@@ -16,8 +16,8 @@ router.post('/signup',function(req, res,next){ signup(req,res,next); });
 //} );
 
 
-router.get('/private', function(req, res){
- isAuth
+router.get('/private', function(req, res,next){
+ isAuth(req,res,next);
 });
 
 router.get('/public', (req, res, next) => {
