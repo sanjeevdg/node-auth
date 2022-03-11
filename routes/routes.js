@@ -7,9 +7,9 @@ const {signup,login,isAuth} = require('../controllers/auth');
  
 const router = express.Router();
 //function(req, res){
-router.post('/login',function(req, res){ login;});
+router.post('/login',function(req, res,next){ login(req,res,next);});
 
-router.post('/signup',function(req, res,next){ signup(req,res,next); console.log('req-body:::'+req.body.email); });
+router.post('/signup',function(req, res,next){ signup(req,res,next); });
 
 //router.get('/signup',function(req, res){
 // signup
