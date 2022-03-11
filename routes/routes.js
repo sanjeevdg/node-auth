@@ -9,7 +9,7 @@ const router = express.Router();
 //function(req, res){
 router.post('/login',function(req, res){ login;});
 
-router.post('/signup',function(req, res,err){ signup;console.log('myerr:::'+err.message+'req-body:::'+req.email);});
+router.post('/signup',function(req, res,err){ signup;console.log('myerr:::'+err.message+'req-body:::'+req.email);return res;});
 
 //router.get('/signup',function(req, res){
 // signup
