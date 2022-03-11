@@ -6,7 +6,7 @@ const User = require('../models/user.js');
 const signup = (req, res, next) => {
     // checks if email already exists
     //'san@san.com'
-    console.log('bbb'+req.email);
+    // console.log('bbb'+req.email);
     User.findOne({ where : {
         email:req.body.email , 
     }})
@@ -15,6 +15,8 @@ const signup = (req, res, next) => {
             return res.status(409).json({message: "email already exists"});
         } else if (req.body.email && req.body.password) {
             // password hash
+       console.log('attemoting to hash password');
+            
             bcrypt.hash(req.body.password, 12, (err, passwordHash) => {
                 if (err) {
                     return res.status(500).json({message: "couldnt hash the password"}); 
