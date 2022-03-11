@@ -6,6 +6,7 @@ const User = require('../models/user.js');
 const signup = (req, res, next) => {
     // checks if email already exists
     //'san@san.com'
+    console.log('bbb'+JSON.stringify(req.body));
     User.findOne({ where : {
         email:req.body.email , 
     }})
