@@ -12,6 +12,7 @@ const signup = (req, res, next) => {
     }})
     .then(dbUser => {
         if (dbUser) {
+            console.log('this is email already exists message after querying db');
             return res.status(409).json({message: "email already exists"});
         } else if (req.body.email && req.body.password) {
             // password hash
