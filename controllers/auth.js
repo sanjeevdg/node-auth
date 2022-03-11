@@ -12,15 +12,15 @@ const signup = (req, res, next) => {
     .then(dbUser => {
         if (dbUser) {
             return res.status(409).json({message: "email already exists"});
-        } else if (req.body.email && req.body.password) {
+        } else if (req.email && req.password) {
             // password hash
-            bcrypt.hash(req.body.password, 12, (err, passwordHash) => {
+            bcrypt.hash(req.password, 12, (err, passwordHash) => {
                 if (err) {
                     return res.status(500).json({message: "couldnt hash the password"}); 
                 } else if (passwordHash) {
                     return User.create(({
-                        email: req.body.email,
-                        name: req.body.name,
+                        email: req.email,
+                        name: req.name,
                         password: passwordHash,
                     }))
                     .then(() => {
@@ -32,9 +32,9 @@ const signup = (req, res, next) => {
                     });
                 };
             });
-        } else if (!req.body.password) {
+        } else if (!req.password) {
             return res.status(400).json({message: "password not provided"});
-        } else if (!req.body.email) {
+        } else if (!req.email) {
             return res.status(400).json({message: "email not provided"});
         };
     })
