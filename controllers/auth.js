@@ -27,6 +27,8 @@ const signup = (req, res, next) => {
                         email: req.body.email,
                         name: req.body.name,
                         password: passwordHash,
+                        latitude:req.body.latitude,
+                        longitude:req.body.longitude,
                     }))
                     .then(() => {
                         res.status(200).json({message: "user created"});
