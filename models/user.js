@@ -20,6 +20,14 @@ const User = sequelize.define('users', {
       type: Sequelize.STRING,
       allowNull: false,
    },
+   latitude: {
+      type: Sequelize.DECIMAL,
+      allowNull: false,
+   },
+   longitude: {
+      type: Sequelize.DECIMAL,
+      allowNull: false,
+   },
 });
 
 //export default User;
