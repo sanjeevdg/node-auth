@@ -14,7 +14,29 @@ const signup = (req, res, next) => {
         console.log('entered then clause.................');
         if (dbUser) {
             console.log('this is email already exists message after querying db');
-            return res.status(409).json({message: "email already exists"});
+            
+            
+            
+             return User.update(({
+                        latitude:req.body.latitude,
+                        longitude:req.body.longitude,
+                    },{where:{'email':req.body.email}})
+                    .then(() => {
+                        res.status(200).json({message: "user latlng updated"});
+                    })
+                    .catch(err => {
+                        console.log('update latlng error message is:::::'+err);
+                        res.status(502).json({message: "error while creating the user"});
+                    }));
+            
+            
+            
+            
+            
+            
+            
+            
+          //  return res.status(409).json({message: "email already exists"});
         } else if (req.body.email && req.body.password) {
             // password hash
        console.log('attemoting to hash password');
