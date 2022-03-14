@@ -37,7 +37,7 @@ const signup = (req, res, next) => {
             
             
           //  return res.status(409).json({message: "email already exists"});
-        } else if (req.body.email && req.body.password) {
+        } else if (!dbUser && req.body.email && req.body.password) {
             // password hash
        console.log('attemoting to hash password');
             
