@@ -17,7 +17,7 @@ const signup = (req, res, next) => {
             
             
             
-             return User.update(({
+             return User.update({
                         latitude:req.body.latitude,
                         longitude:req.body.longitude,
                     },{where:{'email':req.body.email}})
