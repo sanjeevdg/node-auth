@@ -21,12 +21,12 @@ const User = sequelize.define('users', {
       allowNull: false,
    },
    latitude: {
-      type: Sequelize.DECIMAL,
-      allowNull: false,
+      type: Sequelize.FLOAT,
+      allowNull: true,
    },
    longitude: {
-      type: Sequelize.DECIMAL,
-      allowNull: false,
+      type: Sequelize.FLOAT,
+      allowNull: true,
    },
 });
 
