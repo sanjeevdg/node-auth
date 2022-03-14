@@ -27,7 +27,7 @@ const signup = (req, res, next) => {
                     .catch(err => {
                         console.log('update latlng error message is:::::'+err);
                         res.status(502).json({message: "error while creating the user"});
-                    }));
+                    });
             
             
             
