@@ -1,6 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const sequelize = require('./utils/database.js');
+const sequelize = require('../utils/database.js');
 
 const User = require('../models/user.js');
 
