@@ -9,7 +9,7 @@ const router = express.Router();
 //function(req, res){
 router.post('/login',function(req, res,next){ login(req,res,next);});
 
-router.post('/search_neighborhood',function(req, res,next){ search_neighborhood(req,res,next);});
+router.post('/search_neighborhood',async function(req, res,next){ search_neighborhood(req,res,next);});
 
 router.post('/signup',function(req, res,next){ signup(req,res,next); });
 
