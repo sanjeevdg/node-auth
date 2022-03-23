@@ -120,7 +120,7 @@ const isAuth = (req, res, next) => {
 };
 
 
-const search_neighborhood = async (req, res, next) => {
+const searchNeighborhood = async (req, res, next) => {
 
 origlat = req.body.latorig;
 origlong = req.body.longorig;
@@ -131,9 +131,9 @@ const [results, metadata] = await sequelize.query(query);
 
 console.log('sending results:::'+JSON.stringify(results));
 return res.status(200).json({ message: JSON.stringify(results) })
-}
+};
 
 
 
 //export { signup, login, isAuth };
-module.exports = {signup, login, isAuth} ;
+module.exports = {signup, login, isAuth,searchNeighborhood} ;
