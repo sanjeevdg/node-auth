@@ -125,7 +125,7 @@ const searchNeighborhood = async (req, res, next) => {
 origlat = req.body.latorig;
 origlong = req.body.longorig;
 
-var query = "SELECT t.id, t.distance FROM (select id, ( 6371 * ACOS(COS( RADIANS( latitude ) ) * COS( RADIANS( "+origlat+" ) ) * COS( RADIANS( "+origlong+" ) - RADIANS( longitude ) ) + SIN( RADIANS( latitude ) ) *   SIN( RADIANS( "+origlat+") ) ) ) AS distance from deliveryboys)t group by t.id,T.DISTANCE HAVING distance <= 10 ORDER BY t.distance ASC";
+var query = "SELECT t.id, t.name, t.latitude,t.longitude, t.distance FROM (select id, ( 6371 * ACOS(COS( RADIANS( latitude ) ) * COS( RADIANS( "+origlat+" ) ) * COS( RADIANS( "+origlong+" ) - RADIANS( longitude ) ) + SIN( RADIANS( latitude ) ) *   SIN( RADIANS( "+origlat+") ) ) ) AS distance from deliveryboys)t group by t.id,T.DISTANCE HAVING distance <= 10 ORDER BY t.distance ASC";
 
 const [results, metadata] = await sequelize.query(query);
 
