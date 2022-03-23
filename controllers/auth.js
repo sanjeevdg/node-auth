@@ -1,5 +1,6 @@
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const sequelize = require('./utils/database.js');
 
 const User = require('../models/user.js');
 
@@ -117,6 +118,22 @@ const isAuth = (req, res, next) => {
         res.status(200).json({ message: 'Welcome - you are now Logged In.' });
     };
 };
+
+
+const search_neighborhood = (req, res, next) => {
+
+origlat = req.body.latorig;
+origlong = req.body.longorig;
+
+var query = "SELECT t.id, t.distance FROM (select id, ( 6371 * ACOS(COS( RADIANS( latitude ) ) * COS( RADIANS( "+origlat+" ) ) * COS( RADIANS( "+origlong+" ) - RADIANS( longitude ) ) + SIN( RADIANS( latitude ) ) *   SIN( RADIANS( "+origlat+") ) ) ) AS distance from deliveryboys)t group by t.id,T.DISTANCE HAVING distance <= 10 ORDER BY t.distance ASC";
+
+const [results, metadata] = await sequelize.query(query);
+
+console.log('sending results:::'+JSON.stringify(results));
+return res.status(200).json({ message: JSON.stringify(results) })
+}
+
+
 
 //export { signup, login, isAuth };
 module.exports = {signup, login, isAuth} ;
