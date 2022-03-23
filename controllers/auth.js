@@ -120,7 +120,7 @@ const isAuth = (req, res, next) => {
 };
 
 
-const search_neighborhood = (req, res, next) => {
+const search_neighborhood = async (req, res, next) => {
 
 origlat = req.body.latorig;
 origlong = req.body.longorig;
