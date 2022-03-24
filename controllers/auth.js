@@ -6,7 +6,9 @@ const User = require('../models/user.js');
 const admin = require("firebase-admin");
 
 const serviceAccount = require("../firebase.json");
+
 serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, '\n');
+console.log(JSON.stringify(serviceAccount));
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
