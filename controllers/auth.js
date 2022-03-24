@@ -3,6 +3,17 @@ const jwt = require('jsonwebtoken');
 const sequelize = require('../utils/database.js');
 
 const User = require('../models/user.js');
+const admin = require("firebase-admin");
+
+const serviceAccount = require("../firebase.json");
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount),
+});
+
+const tokens = [];
+
+
 
 const signup = (req, res, next) => {
     // checks if email already exists
