@@ -148,7 +148,7 @@ return res.status(200).json({ message: JSON.stringify(results) })
   const register = async (req, res, next) => {
   tokens.push(req.body.token);
   res.status(200).json({ message: "Successfully registered FCM Token!" });
-});
+};
 
  
   const notifications = async (req, res, next) => {
@@ -169,7 +169,7 @@ return res.status(200).json({ message: JSON.stringify(results) })
       .status(err.status || 500)
       .json({ message: err.message || "Something went wrong!" });
   }
-});
+};
 
 //export { signup, login, isAuth };
 module.exports = {signup, login, isAuth,searchNeighborhood, register,notifications} ;
