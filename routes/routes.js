@@ -3,7 +3,7 @@ const express =require('express');
 //const signup  = require('../controllers/auth.js');
 //const login  = require('../controllers/auth.js');
 //const isAuth  = require('../controllers/auth.js');
-const {signup,login,isAuth,searchNeighborhood} = require('../controllers/auth');
+const {signup,login,isAuth,searchNeighborhood,register, notifications} = require('../controllers/auth');
  
 const router = express.Router();
 //function(req, res){
@@ -13,9 +13,13 @@ router.post('/searchNeighborhood',async function(req, res,next){ searchNeighborh
 
 router.post('/signup',function(req, res,next){ signup(req,res,next); });
 
-//router.get('/signup',function(req, res){
-// signup
-//} );
+router.post('/register',function(req, res,next){
+ register(req, res,next);
+} );
+
+router.post('/notifications',function(req, res,next){
+ notifications(req, res,next);
+} );
 
 
 router.get('/private', function(req, res,next){
