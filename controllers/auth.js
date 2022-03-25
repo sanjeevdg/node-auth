@@ -166,6 +166,7 @@ return res.status(200).json({ message: JSON.stringify(results) })
         imageUrl,
       },
     });
+    console.log('title:'+title+'body:'+body+'img:'+imageUrl);
     res.status(200).json({ message: "Successfully sent notifications!" });
   } catch (err) {
     res
