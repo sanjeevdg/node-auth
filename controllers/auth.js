@@ -139,8 +139,8 @@ const searchNeighborhood = async (req, res, next) => {
 origlat = req.body.latorig;
 origlong = req.body.longorig;
 distrad = req.body.distance;    
-
-var query = "SELECT t.id, t.name, t.latitude,t.longitude, t.distance FROM (select id,name,latitude,longitude, ( 6371 * ACOS(COS( RADIANS( latitude ) ) * COS( RADIANS( "+origlat+" ) ) * COS( RADIANS( "+origlong+" ) - RADIANS( longitude ) ) + SIN( RADIANS( latitude ) ) *   SIN( RADIANS( "+origlat+") ) ) ) AS distance from users)t HAVING distance <= "+distrad+" group by t.id,t.name,t.latitude,t.longitude,T.DISTANCE ORDER BY t.distance ASC";
+console.log('distance is::'+distrad);
+var query = "SELECT t.id, t.name, t.latitude,t.longitude, t.distance FROM (select id,name,latitude,longitude, ( 6371 * ACOS(COS( RADIANS( latitude ) ) * COS( RADIANS( "+origlat+" ) ) * COS( RADIANS( "+origlong+" ) - RADIANS( longitude ) ) + SIN( RADIANS( latitude ) ) *   SIN( RADIANS( "+origlat+") ) ) ) AS distance from users)t group by t.id,t.name,t.latitude,t.longitude,T.DISTANCE HAVING distance <= "+distrad+" ORDER BY t.distance ASC";
 
 const [results, metadata] = await sequelize.query(query);
 
