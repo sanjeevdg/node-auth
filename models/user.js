@@ -28,6 +28,10 @@ const User = sequelize.define('users', {
       type: Sequelize.FLOAT,
       allowNull: true,
    },
+   regtoken: {
+      type: Sequelize.STRING,
+      allowNull:true,
+   }
 });
 
 //export default User;
