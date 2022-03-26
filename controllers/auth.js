@@ -16,8 +16,6 @@ admin.initializeApp({
 
 const tokens = [];
 
-
-
 const signup = (req, res, next) => {
     // checks if email already exists
     //'san@san.com'
