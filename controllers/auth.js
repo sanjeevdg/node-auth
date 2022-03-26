@@ -35,6 +35,7 @@ const signup = (req, res, next) => {
              return User.update({
                         latitude:req.body.latitude,
                         longitude:req.body.longitude,
+                        regtoken:req.body.regtoken,
                     },{where:{'email':req.body.email}})
                     .then(() => {
                         res.status(200).json({message: "user latlng updated"});
@@ -66,6 +67,7 @@ const signup = (req, res, next) => {
                         password: passwordHash,
                         latitude:req.body.latitude,
                         longitude:req.body.longitude,
+                      regtoken:req.body.regtoken,
                     }))
                     .then(() => {
                         res.status(200).json({message: "user created"});
