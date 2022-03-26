@@ -159,9 +159,9 @@ return res.status(200).json({ message: JSON.stringify(results) })
   const notifications = async (req, res, next) => {
   
   try {
-    const { title, body, imageUrl } = req.body;
+    const { title, body, imageUrl, regtoken } = req.body;
     await admin.messaging().sendMulticast({
-      tokens,
+      regtoken,
       notification: {
         title,
         body,
