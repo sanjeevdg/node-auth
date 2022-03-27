@@ -159,7 +159,7 @@ return res.status(200).json({ message: JSON.stringify(results) })
   try {
     const { title, body, imageUrl, regtoken } = req.body;
     await admin.messaging().sendMulticast({
-      regtoken,
+      tokens: regtoken,
       notification: {
         title,
         body,
