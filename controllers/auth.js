@@ -159,8 +159,9 @@ return res.status(200).json({ message: JSON.stringify(results) })
   try {
     const { title, body, imageUrl, regtoken } = req.body;
     console.log('my registration token passed id::'+regtoken);
-    await admin.messaging().sendMulticast({
-      tokens: [regtoken],
+    //Multicast
+    await admin.messaging().send({
+      token: regtoken,
       notification: {
         title,
         body,
