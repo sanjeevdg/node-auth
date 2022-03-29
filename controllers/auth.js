@@ -206,4 +206,4 @@ return res.status(200).json({ message: JSON.stringify(results) })
 };
 
 //export { signup, login, isAuth };
-module.exports = {signup, login, isAuth,searchNeighborhood, register,notifications} ;
+module.exports = {signup, login, isAuth,searchNeighborhood, register,notifications,create_order} ;
