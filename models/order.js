@@ -44,7 +44,7 @@ const Order = sequelize.define('orders', {
    expected_at: {
      type: Sequelize.DATE,
       allowNull:true, 
-}
+},
    assigned_to: {
       type: Sequelize.STRING,
       allowNull:true,
