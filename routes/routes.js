@@ -26,7 +26,7 @@ router.get('/private', function(req, res,next){
  isAuth(req,res,next);
 });
 
-router.get('/createOrder', function(req, res,next){
+router.post('/createOrder', function(req, res,next){
  createOrder(req,res,next);
 });
 
