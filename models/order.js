@@ -15,6 +15,7 @@ const Order = sequelize.define('orders', {
    },
    mobile: {
       type: Sequelize.STRING,
+      allowNull: false,
    },
    details: {
       type: Sequelize.STRING,
@@ -26,7 +27,7 @@ const Order = sequelize.define('orders', {
    },
    address: {
    type: Sequelize.STRING,
-      allowNull: false,
+      allowNull: true,
    },
    latitude: {
       type: Sequelize.FLOAT,
@@ -40,6 +41,10 @@ const Order = sequelize.define('orders', {
       type: Sequelize.STRING,
       allowNull:true,
    },
+   expected_at: {
+     type: Sequelize.DATE,
+      allowNull:true, 
+}
    assigned_to: {
       type: Sequelize.STRING,
       allowNull:true,
