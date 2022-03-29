@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const sequelize = require('../utils/database.js');
 
 const User = require('../models/user.js');
+const Order = require('../models/order.js');
 const admin = require("firebase-admin");
 
 const serviceAccount = require("../firebase.json");
@@ -152,6 +153,33 @@ return res.status(200).json({ message: JSON.stringify(results) })
   tokens.push(req.body.token);
   res.status(200).json({ message: "Successfully registered FCM Token!" });
 };
+
+ const create_order = async (req, res, next) => {
+  
+                       return Order.create(({                        
+                        name: req.body.name,
+                      mobile: req.body.mobile,
+                        details: req.body.details,
+                      amount: req.body.amount,
+                      address:req.body.address,
+                      expected_at:req.body.expected_at,
+                         ordered_at:req.body.ordered_at,
+                        latitude:req.body.latitude,
+                        longitude:req.body.longitude,
+                      regtoken:req.body.regtoken,
+                    }))
+                    .then(() => {
+                        res.status(200).json({message: "order created"});
+                    })
+                    .catch(err => {
+                        console.log('create_order error message is:::::'+err);
+                        res.status(502).json({message: "error while creating the order"});
+                    });
+   
+   
+  res.status(200).json({ message: "Successfully created Order!" });
+};
+
 
  
   const notifications = async (req, res, next) => {
