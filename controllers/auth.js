@@ -156,7 +156,7 @@ return res.status(200).json({ message: JSON.stringify(results) })
 
  const createOrder = async (req, res, next) => {
   
-                       return Order.create(({                        
+                       Order.create(({                        
                         name: req.body.name,
                       mobile: req.body.mobile,
                         details: req.body.details,
