@@ -172,7 +172,7 @@ return res.status(200).json({ message: JSON.stringify(results) })
                          // send the notification
                          
                       await admin.messaging().send({
-      token: req.body.regtoken,,
+      token: req.body.regtoken,
       notification: {
         title:"Received your Order",
         body:"Your order is being processed. Please view delivery status at...",
