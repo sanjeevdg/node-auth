@@ -165,11 +165,24 @@ return res.status(200).json({ message: JSON.stringify(results) })
                       expected_at:req.body.expected_at,
                          ordered_at:req.body.ordered_at,
                         latitude:req.body.latitude,
-                        longitude:req.body.longitude,
-                      regtoken:req.body.regtoken,
+                        longitude:req.body.longitude,                      
                     }))
                     .then(() => {
                         res.status(200).json({message: "order created"});
+                         // send the notification
+                         
+                      await admin.messaging().send({
+      token: req.body.regtoken,,
+      notification: {
+        title:"Received your Order",
+        body:"Your order is being processed. Please view delivery status at...",
+        imageUrl:'',
+      },
+    });   
+                         
+                         
+             console.log('message sent');            
+                         
                     })
                     .catch(err => {
                         console.log('create_order error message is:::::'+err);
