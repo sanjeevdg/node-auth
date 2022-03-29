@@ -45,11 +45,11 @@ const Order = sequelize.define('orders', {
       allowNull:true,
    },
    pickup_at: {
-      type: Sequelize.DateTime,
+      type: Sequelize.DATE,
       allowNull:true,
    },
    drop_at: {
-      type: Sequelize.Timestamp,
+      type: Sequelize.DATE,
       allowNull:true,
    },
    status: {
