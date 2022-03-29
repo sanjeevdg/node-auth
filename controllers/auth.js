@@ -154,7 +154,7 @@ return res.status(200).json({ message: JSON.stringify(results) })
   res.status(200).json({ message: "Successfully registered FCM Token!" });
 };
 
- const create_order = async (req, res, next) => {
+ const createOrder = async (req, res, next) => {
   
                        return Order.create(({                        
                         name: req.body.name,
@@ -206,4 +206,4 @@ return res.status(200).json({ message: JSON.stringify(results) })
 };
 
 //export { signup, login, isAuth };
-module.exports = {signup, login, isAuth,searchNeighborhood, register,notifications,create_order} ;
+module.exports = {signup, login, isAuth,searchNeighborhood, register,notifications,createOrder} ;
