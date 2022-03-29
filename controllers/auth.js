@@ -167,7 +167,7 @@ return res.status(200).json({ message: JSON.stringify(results) })
                         latitude:req.body.latitude,
                         longitude:req.body.longitude,                      
                     }))
-                    .then(() => {
+                    .then(async() => {
                         res.status(200).json({message: "order created"});
                          // send the notification
                          
