@@ -30,6 +30,10 @@ router.post('/createOrder', function(req, res,next){
  createOrder(req,res,next);
 });
 
+router.post('/getAllOpenOrders', function(req, res,next){
+ getAllOpenOrders(req,res,next);
+});
+
 router.get('/public', (req, res, next) => {
     res.status(200).json({ message: "here is your public resource" });
 });
