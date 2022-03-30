@@ -165,7 +165,7 @@ return res.status(200).json({ message: JSON.stringify(results) })
             return res.status(200).json({message: "No open orders"});
         } else {
 		console.log('opords:'+JSON.stringify(opords));
-          return res.status(200).json({message: "No open orders"});
+          return res.status(200).json({message:JSON.stringify(opords) });
           
           
 		}
@@ -180,7 +180,7 @@ return res.status(200).json({ message: JSON.stringify(results) })
    
    
    
-  res.status(200).json({ message: "fetch open orders success!" });
+//  res.status(200).json({ message: "fetch open orders success!" });
 };
 
  const createOrder = async (req, res, next) => {
