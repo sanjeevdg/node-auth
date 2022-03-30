@@ -152,6 +152,37 @@ return res.status(200).json({ message: JSON.stringify(results) })
   res.status(200).json({ message: "Successfully registered FCM Token!" });
 };
 
+ const getAllOpenOrders = async (req, res, next) => {
+  ///tokens.push(req.body.token);
+   
+  
+   Order.findAll({
+  where: {
+    status: 'open'
+  }
+})  .then(opords => {
+        if (!opords) {
+            return res.status(200).json({message: "No open orders"});
+        } else {
+		console.log('opords:'+JSON.stringify(opords));
+          return res.status(200).json({message: "No open orders"});
+          
+          
+		}
+ })
+ .catch(err => {
+        console.log('error', err);
+    });
+   
+   
+   
+   
+   
+   
+   
+  res.status(200).json({ message: "fetch open orders success!" });
+};
+
  const createOrder = async (req, res, next) => {
   
                        Order.create(({                        
