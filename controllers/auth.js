@@ -29,8 +29,6 @@ const signup = (req, res, next) => {
         if (dbUser) {
             console.log('this is email already exists message after querying db');
             
-            
-            
              return User.update({
                         latitude:req.body.latitude,
                         longitude:req.body.longitude,
@@ -165,7 +163,8 @@ return res.status(200).json({ message: JSON.stringify(results) })
                       expected_at:req.body.expected_at,
                          ordered_at:req.body.ordered_at,
                         latitude:req.body.latitude,
-                        longitude:req.body.longitude,                      
+                        longitude:req.body.longitude,
+                         status:req.body.status,
                     }))
                     .then(async() => {
                         res.status(200).json({message: "order created"});
