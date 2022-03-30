@@ -3,7 +3,7 @@ const express =require('express');
 //const signup  = require('../controllers/auth.js');
 //const login  = require('../controllers/auth.js');
 //const isAuth  = require('../controllers/auth.js');
-const {signup,login,isAuth,searchNeighborhood,register, notifications,createOrder} = require('../controllers/auth');
+const {signup,login,isAuth,searchNeighborhood,register, notifications,createOrder,getAllOpenOrders} = require('../controllers/auth');
  
 const router = express.Router();
 //function(req, res){
