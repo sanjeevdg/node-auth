@@ -249,4 +249,4 @@ return res.status(200).json({ message: JSON.stringify(results) })
 };
 
 //export { signup, login, isAuth };
-module.exports = {signup, login, isAuth,searchNeighborhood, register,notifications,createOrder} ;
+module.exports = {signup, login, isAuth,searchNeighborhood, register,notifications,createOrder,getAllOpenOrders} ;
