@@ -178,7 +178,7 @@ return res.status(200).json({ message: JSON.stringify(results) })
   
 await Order.update({ status: "Assigned" }, {
   where: {
-    status: open,
+    status: "open",
 	  id:9,
   }
 }).then(() => {
