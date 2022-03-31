@@ -153,35 +153,51 @@ return res.status(200).json({ message: JSON.stringify(results) })
 };
 
  const getAllOpenOrders = async (req, res, next) => {
-  ///tokens.push(req.body.token);
-   
   
-   Order.findAll({
+ Order.findAll({
   where: {
     status: 'open'
   }
-})  .then(opords => {
+}).then(opords => {
         if (!opords) {
             return res.status(200).json({message: "No open orders"});
         } else {
 		console.log('opords:'+JSON.stringify(opords));
           return res.status(200).json({message:JSON.stringify(opords) });
-          
-          
-		}
+	}
  })
  .catch(err => {
         console.log('error', err);
     });
-   
-   
-   
-   
-   
-   
-   
-//  res.status(200).json({ message: "fetch open orders success!" });
+
 };
+
+
+
+ const assignOrder = async (req, res, next) => {
+  
+await Order.update({ status: "Assigned" }, {
+  where: {
+    status: open,
+	  id:9,
+  }
+}).then(assgnto => {
+        if (!assgnto) {
+            return res.status(200).json({message: "Order Updated/Assigned"});
+        } else {
+		console.log('opords:'+JSON.stringify(assgnto));
+          return res.status(200).json({message:JSON.stringify(assgnto) });
+	}
+ })
+ .catch(err => {
+        console.log('error', err);
+    });
+
+};
+
+
+
+
 
  const createOrder = async (req, res, next) => {
   
@@ -249,4 +265,4 @@ return res.status(200).json({ message: JSON.stringify(results) })
 };
 
 //export { signup, login, isAuth };
-module.exports = {signup, login, isAuth,searchNeighborhood, register,notifications,createOrder,getAllOpenOrders} ;
+module.exports = {signup, login, isAuth,searchNeighborhood, register,notifications,createOrder,getAllOpenOrders,assignOrder} ;
