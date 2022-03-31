@@ -35,7 +35,7 @@ router.post('/getAllOpenOrders', function(req, res,next){
 });
 
 router.post('/assignOrder', function(req, res,next){
- getAllOpenOrders(req,res,next);
+ assignOrder(req,res,next);
 });
 
 router.get('/public', (req, res, next) => {
