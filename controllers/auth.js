@@ -181,13 +181,18 @@ await Order.update({ status: "Assigned" }, {
     status: open,
 	  id:9,
   }
-}).then(assgnto => {
-        if (!assgnto) {
-            return res.status(200).json({message: "Order Updated/Assigned"});
+}).then(() => {
+        
+	
+	  return res.status(200).json({message: "Order Updated/Assigned"});
+	/*
+	if (!assgnto) {
+            return res.status(500).json({message: "Order Updated/Assigned"});
         } else {
 		console.log('opords:'+JSON.stringify(assgnto));
           return res.status(200).json({message:JSON.stringify(assgnto) });
 	}
+	*/
  })
  .catch(err => {
         console.log('error', err);
